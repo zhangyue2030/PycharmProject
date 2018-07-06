@@ -9,7 +9,7 @@ response_str = response.content.decode()
 response_dict = json.loads(response_str)
 print(response_dict)
 
-with open("douban.txt","w",encoding="utf-8") as f:
+with open("../../ResultFiles/douban.txt","w",encoding="utf-8") as f:
     f.write(json.dumps(response_dict,ensure_ascii=False,indent=2))
     #ensure_ascii = False 数据不再以ascall码方式保存在本地，中文直接写入
 

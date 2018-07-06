@@ -20,7 +20,7 @@ class DoubanSpider:
     保存数据
     '''
     def save_content_list(self,content_list):
-        with open("douban.json","a",encoding="utf-8") as f:
+        with open("../../ResultFiles/douban.json","a",encoding="utf-8") as f:
             for content in content_list:
                 f.write(json.dumps(content, ensure_ascii=False))
                 f.write("\n")
