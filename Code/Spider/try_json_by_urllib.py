@@ -43,8 +43,17 @@ headers = {
 }
 
 
-# 有了headers，data，url，就可以尝试发出请求了
-rsp = request.urlopen(baseurl, data=data)
+# 可以直接尝试发出请求
+# rsp = request.urlopen(baseurl, data=data)
+
+# 或通过request发送带headers的请求
+# 这是构造一个Request的实例
+req = request.Request(url=baseurl, data=data, headers=headers)
+# req.add_header("User-Agent","````") #注：可以通过add_header()添加头
+
+# 因为已经构造了一个Request的请求实例，则所有的请求信息都可以封装在Request实例中
+# urlopen可以打开URL 而URL，可以是字符串或Request对象
+rsp = request.urlopen(req)
 
 json_data = rsp.read()
 
